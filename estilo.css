@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(imagen/fondo.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: monospace;
+}
+
+nav{
+    text-align: right;
+    padding: 30px 50px 0 0;
+
+}
+nav > a{
+    color: aliceblue;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+
+}
+nav > a:hover{
+    text-decoration: underline;
+} 
+
+
+.form-reserva {
+    width: 400px;
+    background: rgba(138, 5, 226, 0.774);
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: "calibri";
+    color: #fff;
+    box-shadow: 0 0 10px #333;
+}
+
+.form-reserva h4{
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.controls{
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 2px solid #00123a;
+    font-family: "calibri";
+    font-size: 18px;
+}
+
+.form-reserva p{
+    font-size: 18px;   
+}
+
+
+.form-reserva .boton{
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px; 
+}
+
