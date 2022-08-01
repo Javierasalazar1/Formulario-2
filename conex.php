@@ -3,7 +3,7 @@ $con = mysqli_connect(
     'localhost',
     'root',
     '',
-    'reserva'
+    'reserva 3'
 );
 
 
