@@ -13,7 +13,7 @@
             $espacio=$row['cod_espacioC'];
             $fechai=$row['Fecha_inicio'];
             $fechaf=$row['Fecha_fin'];
-            if($id=$_GET['id']){
+            if(isset($espacio)){
                 $row=mysqli_fetch_array($res);
                 $nombre=$row['Nom_espacioC'];
             }
@@ -58,7 +58,7 @@
   <form class="form-reserva" action="edit.php?id=<?php echo $_GET['id'] ?>" method="POST">
     <h4>Editar Reserva</h4>
     <select class="controls" name="espacio">
-                        <option disabled selected=""  ><?php echo $nombre?></option>
+                        <option disabled selected="" value="<?php echo $nombre?>" ><?php echo $nombre?></option>
                         <option value="11">piscina</option>
                         <option value="12">quincho</option>
                         <option value="13">gimnasio</option>
