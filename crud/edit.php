@@ -58,16 +58,16 @@
   <form class="form-reserva" action="edit.php?id=<?php echo $_GET['id'] ?>" method="POST">
     <h4>Editar Reserva</h4>
     <select class="controls" name="espacio">
-                        <option disabled selected=""><?php echo $nombre?></option>
+                        <option disabled selected=""  ><?php echo $nombre?></option>
                         <option value="11">piscina</option>
                         <option value="12">quincho</option>
                         <option value="13">gimnasio</option>
                         <option value="14">sala de juegos</option>
                     </select>
     <p> Ingrese fecha y hora de inicio de la reserva:</p>               
-    <input class="controls" type="datetime" name="Fecha_inicio" id="Fecha_inicio"  value="<?php echo $fechai?>">
+    <input class="controls" type="datetime-local" name="Fecha_inicio" id="Fecha_inicio"  value="<?php echo $fechai?>">
     <p> Ingrese fecha y hora de termino de la reserva:</p> 
-    <input class="controls" type="datetime" name="Fecha_Termino" id="Fecha_termino" value="<?php echo $fechaf?>">
+    <input class="controls" type="datetime-local" name="Fecha_Termino" id="Fecha_termino" value="<?php echo $fechaf?>">
 
 
     <input  type="submit" class="boton" name="Actualizar" >

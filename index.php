@@ -34,9 +34,9 @@
                         <option value="14">sala de juegos</option>
     </select>                   
     <p> Ingrese fecha y hora de inicio de la reserva:</p>               
-    <input class="controls" type="datetime" name="Fecha_inicio">
+    <input class="controls" type="datetime-local" name="Fecha_inicio">
     <p> Ingrese fecha y hora de termino de la reserva:</p> 
-    <input class="controls" type="datetime" name="Fecha_Termino">
+    <input class="controls" type="datetime-local" name="Fecha_Termino">
 
     <input  type="submit" class="boton" name="save" value="Enviar">
 
