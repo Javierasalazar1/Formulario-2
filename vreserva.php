@@ -4,6 +4,8 @@
   
     $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC";
     $resultado = mysqli_query($con,$consul);
+
+
   
     
 ?>
@@ -40,6 +42,10 @@
         </thead>
         <?php 
         while($row=mysqli_fetch_array($resultado)){
+            $f=explode('T',$row['Fecha_inicio']);
+            $fechainicial=$f[0]." a las ".$f[1];
+            $s=explode('T',$row['Fecha_fin']);
+            $fechafinal=$s[0]." a las ".$s[1];
 		 ?>
 
 		<tr>

@@ -3,20 +3,17 @@
   
     if(isset($_GET['id'])){
         $id=$_GET['id'];
-        $query= "SELECT * FROM reserva WHERE id=$id";
-        $result= mysqli_query($con,$query);
-        $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC";
+
+        $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC AND id=$id";
         $res=mysqli_query($con,$consul);
 
-        if(mysqli_num_rows($result)==1){
-            $row= mysqli_fetch_array($result);
+        if(mysqli_num_rows($res)==1){
+            $row= mysqli_fetch_array($res);
             $espacio=$row['cod_espacioC'];
             $fechai=$row['Fecha_inicio'];
             $fechaf=$row['Fecha_fin'];
-            if(isset($espacio)){
-                $row=mysqli_fetch_array($res);
-                $nombre=$row['Nom_espacioC'];
-            }
+            $nombre=$row['Nom_espacioC'];
+            
         }
     }
     if(isset($_POST['Actualizar'])){
@@ -58,7 +55,7 @@
   <form class="form-reserva" action="edit.php?id=<?php echo $_GET['id'] ?>" method="POST">
     <h4>Editar Reserva</h4>
     <select class="controls" name="espacio">
-                        <option disabled selected="" value="<?php echo $nombre?>" ><?php echo $nombre?></option>
+                        <option value="<?php echo $espacio?>" ><?php echo $nombre?></option>
                         <option value="11">piscina</option>
                         <option value="12">quincho</option>
                         <option value="13">gimnasio</option>
