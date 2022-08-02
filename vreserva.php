@@ -42,16 +42,19 @@
         </thead>
         <?php 
         while($row=mysqli_fetch_array($resultado)){
-            $f=explode('T',$row['Fecha_inicio']);
-            $fechainicial=$f[0]." a las ".$f[1];
-            $s=explode('T',$row['Fecha_fin']);
-            $fechafinal=$s[0]." a las ".$s[1];
+            if(mysqli_num_rows($resultado)!=0){
+                $fechai=$row['Fecha_inicio'];
+                $fechaf=$row['Fecha_fin']; 
+                $f=explode('T',$fechai);
+                $fechainicial=$f[0]." a las ".$f[1];
+                $s=explode('T',$fechaf);
+                $fechafinal=$s[0]." a las ".$s[1];}
 		 ?>
 
 		<tr>
 			<td><?php echo $row['Nom_espacioC'] ?></td>
-			<td><?php echo $row['Fecha_inicio'] ?></td>
-			<td><?php echo $row['Fecha_fin'] ?></td>
+			<td><?php echo $fechainicial ?></td>
+			<td><?php echo $fechafinal ?></td>
             <td><a href="crud/edit.php?id=<?php echo $row['id'] ?>" class="btn btn-info"><i class="fas fa-marker"></i></a></td>
             <td><a href="crud/eliminar.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
 

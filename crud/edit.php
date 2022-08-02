@@ -1,6 +1,8 @@
 <?php 
     include("../conex.php");
-  
+    date_default_timezone_set("America/Santiago");
+    $date=date("Y-m-d H:i");  
+    
     if(isset($_GET['id'])){
         $id=$_GET['id'];
 
@@ -62,9 +64,9 @@
                         <option value="14">sala de juegos</option>
                     </select>
     <p> Ingrese fecha y hora de inicio de la reserva:</p>               
-    <input class="controls" type="datetime-local" name="Fecha_inicio" id="Fecha_inicio"  value="<?php echo $fechai?>">
+    <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_inicio" id="Fecha_inicio"  value="<?php echo $fechai?>">
     <p> Ingrese fecha y hora de termino de la reserva:</p> 
-    <input class="controls" type="datetime-local" name="Fecha_Termino" id="Fecha_termino" value="<?php echo $fechaf?>">
+    <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_Termino" id="Fecha_termino" value="<?php echo $fechaf?>">
 
 
     <input  type="submit" class="boton" name="Actualizar" >

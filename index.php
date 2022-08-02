@@ -1,5 +1,7 @@
 <?php 
     include("conex.php");
+    date_default_timezone_set("America/Santiago");
+    $date=date("Y-m-d H:i"); 
 ?>
 
 
@@ -13,8 +15,6 @@
   <link rel="stylesheet" href="estilo.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/b36d8c9019.js" crossorigin="anonymous"></script>
-  
- 
 </head>
 <body>
 
@@ -42,9 +42,9 @@
                         <option value="14">sala de juegos</option>
     </select>                   
     <p> Ingrese fecha y hora de inicio de la reserva:</p>               
-    <input class="controls" type="datetime-local" name="Fecha_inicio">
+    <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_inicio" >
     <p> Ingrese fecha y hora de termino de la reserva:</p> 
-    <input class="controls" type="datetime-local" name="Fecha_Termino">
+    <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_Termino">
 
     <input  type="submit" class="boton" name="save" value="Enviar">
 
