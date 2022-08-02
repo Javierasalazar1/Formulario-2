@@ -9,10 +9,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Formulario de Reserva</title>
   <link rel="stylesheet" href="estilo.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/b36d8c9019.js" crossorigin="anonymous"></script>
-  <title>Formulario de Reserva</title>
+  
+ 
 </head>
 <body>
 
@@ -22,7 +24,13 @@
            
         </nav>
     </header>
-
+    <br>
+  <?php if(isset($_SESSION['mensaje'])){?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <?php echo $_SESSION['mensaje'] ?>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php session_unset();}?>
 
   <form class="form-reserva" action="crud/guardar.php" method="POST">
     <h4>Hacer Reserva</h4>
@@ -41,5 +49,7 @@
     <input  type="submit" class="boton" name="save" value="Enviar">
 
 </form>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -29,12 +29,8 @@ nav > a:hover{
     text-decoration: underline;
 } 
 
-.table {
-    width: 200px;
-    background: rgba(138, 5, 226, 0.774);
-    padding: 10px;
-    margin: auto;
-    margin-top: 40px;
+.table{
+    margin-top: 50px;
     border-radius: 4px;
     box-shadow: 0 0 10px #333;
 }

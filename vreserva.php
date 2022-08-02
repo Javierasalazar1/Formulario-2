@@ -4,6 +4,7 @@
   
     $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC";
     $resultado = mysqli_query($con,$consul);
+  
     
 ?>
 <!DOCTYPE html>
@@ -27,7 +28,8 @@
 
     <br>
 
-    <table class= "table" >
+    <table class= "table table-dark table-striped" >
+        <thead class="table-dark">
         <tr>
             <td>Espacio común</td>
             <td>Fecha de inicio</td>
@@ -35,6 +37,7 @@
             <td>Editar</td>
             <td>Eliminar</td>
         </tr>
+        </thead>
         <?php 
         while($row=mysqli_fetch_array($resultado)){
 		 ?>
@@ -43,7 +46,7 @@
 			<td><?php echo $row['Nom_espacioC'] ?></td>
 			<td><?php echo $row['Fecha_inicio'] ?></td>
 			<td><?php echo $row['Fecha_fin'] ?></td>
-            <td><a href="crud/edit.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary"><i class="fas fa-marker"></i></a></td>
+            <td><a href="crud/edit.php?id=<?php echo $row['id'] ?>" class="btn btn-info"><i class="fas fa-marker"></i></a></td>
             <td><a href="crud/eliminar.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
 
 		</tr>
