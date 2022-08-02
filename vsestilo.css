@@ -10,7 +10,6 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: monospace;
 }
 
 nav{
@@ -31,12 +30,13 @@ nav > a:hover{
 
 .table{
     margin-top: 50px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px #333;
 }
 
-.table td{
+tr td{
+    border: solid 1px rgba(99, 3, 3, 0.397);
     font-family: "calibri";
     color: #fff;
+    text-align: center;
+
 }
 
