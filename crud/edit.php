@@ -2,7 +2,7 @@
     include("../conex.php");
     date_default_timezone_set("America/Santiago");
     $date=date("Y-m-d H:i");  
-    
+
     if(isset($_GET['id'])){
         $id=$_GET['id'];
 
@@ -23,6 +23,36 @@
         $espac = $_POST['espacio'];
         $fechaini = $_POST['Fecha_inicio'];
         $fechater = $_POST['Fecha_Termino'];
+
+                /* separar fecha*/    
+    $f=explode('T',$fechaini);
+    $y=$f[0]."-".$f[1];
+    $fi=explode('-',$y);
+    $fii=$fi[2]."-".$fi[1]."-".$fi[0]."-".$fi[3];
+    $fa=explode(':',$fii);
+       /* separar fecha*/ 
+    $s=explode('T',$fechater);
+    $t=$s[0]."-".$s[1];
+    $ff=explode('-',$t);
+    $fff=$ff[2]."-".$ff[1]."-".$ff[0]."-".$ff[3];
+    $fb=explode(':',$fff);
+
+    if($fa[0]>$fb[0]){
+        die("la fecha de inicio debe ser menor a la de término");
+    }else{
+        if($fa[1]>$fb[1]){
+          die("el mes de inicio debe ser menor o igual a el mes de termino");
+        }else{
+            if($fa[2]>$fb[2]){
+                die("el dia de inicio debe ser menor o igual a el dia de termino");
+            }else{
+                if($fa[3]>$fb[3]){
+                    die("la hora de inicio debe ser menor a la hora de termino");
+               }
+            }
+        }
+    }
+
 
         $update=mysqli_query($con,"UPDATE reserva set cod_espacioC='$espac', Fecha_inicio='$fechaini', Fecha_fin='$fechater'WHERE id=$id");
 
@@ -58,10 +88,10 @@
     <h4>Editar Reserva</h4>
     <select class="controls" name="espacio">
                         <option value="<?php echo $espacio?>" ><?php echo $nombre?></option>
-                        <option value="11">piscina</option>
-                        <option value="12">quincho</option>
-                        <option value="13">gimnasio</option>
-                        <option value="14">sala de juegos</option>
+                        <option value="11">Piscina</option>
+                        <option value="12">Quincho</option>
+                        <option value="13">Gimnasio</option>
+                        <option value="14">Sala de juegos</option>
                     </select>
     <p> Ingrese fecha y hora de inicio de la reserva:</p>               
     <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_inicio" id="Fecha_inicio"  value="<?php echo $fechai?>">

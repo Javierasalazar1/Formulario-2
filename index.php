@@ -36,10 +36,10 @@
     <h4>Hacer Reserva</h4>
     <select class="controls" name="espacio">
                         <option disabled selected="">Seleccione un espacio común</option>
-                        <option value="11">piscina</option>
-                        <option value="12">quincho</option>
-                        <option value="13">gimnasio</option>
-                        <option value="14">sala de juegos</option>
+                        <option value="11">Piscina</option>
+                        <option value="12">Quincho</option>
+                        <option value="13">Gimnasio</option>
+                        <option value="14">Sala de juegos</option>
     </select>                   
     <p> Ingrese fecha y hora de inicio de la reserva:</p>               
     <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_inicio" >

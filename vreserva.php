@@ -45,16 +45,25 @@
             if(mysqli_num_rows($resultado)!=0){
                 $fechai=$row['Fecha_inicio'];
                 $fechaf=$row['Fecha_fin']; 
+                /* cambiar vista de fecha*/ 
                 $f=explode('T',$fechai);
-                $fechainicial=$f[0]." a las ".$f[1];
+                $fechainicial=$f[0]."-".$f[1];
+                $fi=explode('-',$fechainicial);
+                $fechainif=$fi[2]."-".$fi[1]."-".$fi[0]." a las ".$fi[3];
+                    /* cambiar vista de fecha*/ 
                 $s=explode('T',$fechaf);
-                $fechafinal=$s[0]." a las ".$s[1];}
+                $fechafinal=$s[0]."-".$s[1];
+                $ff=explode('-',$fechafinal);
+                $fechafinf=$ff[2]."-".$ff[1]."-".$ff[0]." a las ".$ff[3];
+                
+            
+            }
 		 ?>
 
 		<tr>
 			<td><?php echo $row['Nom_espacioC'] ?></td>
-			<td><?php echo $fechainicial ?></td>
-			<td><?php echo $fechafinal ?></td>
+			<td><?php echo $fechainif ?></td>
+			<td><?php echo $fechafinf ?></td>
             <td><a href="crud/edit.php?id=<?php echo $row['id'] ?>" class="btn btn-info"><i class="fas fa-marker"></i></a></td>
             <td><a href="crud/eliminar.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
 
