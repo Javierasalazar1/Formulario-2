@@ -71,7 +71,8 @@
 	<?php 
 	}
 	 ?>
-
+    <script> function alerta(){ alert("Se ha eliminado con éxito")}
+</script>
     </table>
 </body>
 </html>

@@ -5,10 +5,10 @@
     $fechaini = $_POST['Fecha_inicio'];
     $fechater = $_POST['Fecha_Termino'];
 
-        if($espac==0 || !$fechaini || !$fechater){
+        if($espac=0 || !$fechaini || !$fechater){
             die("debe llenar los campos");
 
-        }
+    }
 
         /* separar fecha*/    
     $f=explode('T',$fechaini);
