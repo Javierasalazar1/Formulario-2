@@ -23,7 +23,7 @@
 <body>
 <header>
         <nav>
-            <a href="index.php" hred="#">Hacer formulario</a>
+                <a href="index.php"  class="btn btn-info">Hacer formulario</a>
            
         </nav>
     </header>
@@ -65,7 +65,7 @@
 			<td><?php echo $fechainif ?></td>
 			<td><?php echo $fechafinf ?></td>
             <td><a href="crud/edit.php?id=<?php echo $row['id'] ?>" class="btn btn-info"><i class="fas fa-marker"></i></a></td>
-            <td><a href="crud/eliminar.php?id=<?php echo $row['id'] ?>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+            <td><a href="crud/eliminar.php?id=<?php echo $row['id'] ?>" onclick="alerta()" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
 
 		</tr>
 	<?php 

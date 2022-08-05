@@ -20,8 +20,7 @@
 
     <header>
         <nav>
-            <a href="vreserva.php" hred="#">Ver mis reservas</a>
-           
+            <a href="vreserva.php"  class="btn btn-info">Ver mis reservas</a>
         </nav>
     </header>
     <br>
