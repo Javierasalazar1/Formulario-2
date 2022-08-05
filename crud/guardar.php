@@ -5,7 +5,7 @@
     $fechaini = $_POST['Fecha_inicio'];
     $fechater = $_POST['Fecha_Termino'];
 
-        if($espac=0 || !$fechaini || !$fechater){
+        if($espac==0 || !$fechaini || !$fechater){
             die("debe llenar los campos");
 
     }
@@ -15,29 +15,35 @@
     $y=$f[0]."-".$f[1];
     $fi=explode('-',$y);
     $fii=$fi[2]."-".$fi[1]."-".$fi[0]."-".$fi[3];
-    $fa=explode(':',$fii);
+    $fiii=explode(':',$fii);
+    $fiiii=$fiii[0]."-".$fiii[1]."-".$fiii[2]."-".$fiii[3]."-".$fiii[4];
+    $fa=explode('-',$fiiii);
        /* separar fecha*/ 
     $s=explode('T',$fechater);
     $t=$s[0]."-".$s[1];
     $ff=explode('-',$t);
     $fff=$ff[2]."-".$ff[1]."-".$ff[0]."-".$ff[3];
-    $fb=explode(':',$fff);
+    $ffff=explode(':',$fff);
+    $fffff=$ffff[0]."-".$ffff[1]."-".$ffff[2]."-".$ffff[3]."-".$ffff[4];
+    $fb=explode('-',$fffff);
 
+   
     if($fa[0]>$fb[0]){
-        die("la fecha de inicio debe ser menor a la de término");
-    }else{
-        if($fa[1]>$fb[1]){
-          die("el mes de inicio debe ser menor o igual a el mes de termino");
-        }else{
-            if($fa[2]>$fb[2]){
-                die("el dia de inicio debe ser menor o igual a el dia de termino");
-            }else{
-                if($fa[3]>$fb[3]){
-                    die("la hora de inicio debe ser menor a la hora de termino");
-               }
+        if($fa[1]==$fb[1]){
+            die("el dia de inicio debe ser menor o igual a el dia de termino");
             }
-        }
-    }
+        }else{
+              if($fa[1]>$fb[1]){
+                    die("el mes de inicio debe ser menor o igual a el dia de termino");
+                    }
+            else{
+                    if($fa[0]==$fb[0]){
+                     if($fa[3]>$fb[3]){
+                     die("la hora de inicio debe ser menor a la hora de termino");
+                   }
+            }
+        }}
+    
 
 
 

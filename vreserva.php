@@ -72,7 +72,7 @@
 	}
 	 ?>
     <script> function alerta(){ alert("Se ha eliminado con éxito")}
-</script>
+    </script>
     </table>
 </body>
 </html>
