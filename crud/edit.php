@@ -1,12 +1,12 @@
 <?php 
-    include("../conex.php");
+    include("../conexion.php");
     date_default_timezone_set("America/Santiago");
     $date=date("Y-m-d H:i");  
 
     if(isset($_GET['id'])){
         $id=$_GET['id'];
 
-        $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC AND id=$id";
+        $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC AND Id=$id";
         $res=mysqli_query($con,$consul);
 
         if(mysqli_num_rows($res)==1){
@@ -24,51 +24,51 @@
         $fechaini = $_POST['Fecha_inicio'];
         $fechater = $_POST['Fecha_Termino'];
 
-                /* separar fecha*/    
-                $f=explode('T',$fechaini);
-                $y=$f[0]."-".$f[1];
-                $fi=explode('-',$y);
-                $fii=$fi[2]."-".$fi[1]."-".$fi[0]."-".$fi[3];
-                $fiii=explode(':',$fii);
-                $fiiii=$fiii[0]."-".$fiii[1]."-".$fiii[2]."-".$fiii[3]."-".$fiii[4];
-                $fa=explode('-',$fiiii);
-                   /* separar fecha*/ 
-                $s=explode('T',$fechater);
-                $t=$s[0]."-".$s[1];
-                $ff=explode('-',$t);
-                $fff=$ff[2]."-".$ff[1]."-".$ff[0]."-".$ff[3];
-                $ffff=explode(':',$fff);
-                $fffff=$ffff[0]."-".$ffff[1]."-".$ffff[2]."-".$ffff[3]."-".$ffff[4];
-                $fb=explode('-',$fffff);
-            
-               
-                if($fa[0]>$fb[0]){
-                    if($fa[1]==$fb[1]){
-                        die("el dia de inicio debe ser menor o igual a el dia de termino");
-                        }
-                    }else{
-                          if($fa[1]>$fb[1]){
-                                die("el mes de inicio debe ser menor o igual a el dia de termino");
-                                }
-                        else{
-                                if($fa[0]==$fb[0]){
-                                 if($fa[3]>$fb[3]){
-                                 die("la hora de inicio debe ser menor a la hora de termino");
-                               }
-                        }
-                    }}
-                
+         /* separar fecha*/    
+         $f=explode('T',$fechaini);
+         $y=$f[0]."-".$f[1];
+         $fi=explode('-',$y);
+         $fii=$fi[2]."-".$fi[1]."-".$fi[0]."-".$fi[3];
+         $fiii=explode(':',$fii);
+         $fiiii=$fiii[0]."-".$fiii[1];
+         $fa=explode('-',$fiiii);
+            /* separar fecha*/ 
+         $s=explode('T',$fechater);
+         $t=$s[0]."-".$s[1];
+         $ff=explode('-',$t);
+         $fff=$ff[2]."-".$ff[1]."-".$ff[0]."-".$ff[3];
+         $ffff=explode(':',$fff);
+         $fffff=$ffff[0]."-".$ffff[1];
+         $fb=explode('-',$fffff);
+ 
 
+         if($fa[0]>$fb[0]){
+            if($fa[1]==$fb[1]){
+                die("el dia de inicio debe ser menor o igual a el dia de termino");
+                }
+            }else{
+                  if($fa[1]>$fb[1]){
+                        die("el mes de inicio debe ser menor o igual a el dia de termino");
+                        }
+                else{
+                        if($fa[0]==$fb[0]){
+                         if($fa[3]>$fb[3]){
+                         die("la hora de inicio debe ser menor a la hora de termino");
+                       }
+                }
+            }}
+        
 
         $update=mysqli_query($con,"UPDATE reserva set cod_espacioC='$espac', Fecha_inicio='$fechaini', Fecha_fin='$fechater'WHERE id=$id");
 
         if($update==1){
 	        header('location:../vreserva.php');
-}
+        }
 
     }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -84,7 +84,7 @@
 
     <header>
         <nav>
-            <a href="../vreserva.php" hred="#">Volver a mis reservas</a>
+            <a href="../vreserva.php" class="btn btn-info" hred="#">Volver a mis reservas</a>
            
         </nav>
     </header>

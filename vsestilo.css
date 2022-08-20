@@ -5,7 +5,7 @@
 }
 
 body{
-    background-image: url(imagen/fondo.jpg);
+    background-image: url(img/3fondo.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -15,7 +15,6 @@ body{
 nav{
     text-align: right;
     padding: 30px 50px 0 0;
-    
 
 }
 nav > a{

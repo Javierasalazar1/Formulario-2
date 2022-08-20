@@ -1,54 +1,87 @@
-<?php 
-    include("conex.php");
-    date_default_timezone_set("America/Santiago");
-    $date=date("Y-m-d H:i"); 
-?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Formulario de Reserva</title>
-  <link rel="stylesheet" href="estilo.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/b36d8c9019.js" crossorigin="anonymous"></script>
+  <title>Iniciar sesion </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  <style>
+body {
+  background-image: url('img/3fondo.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+
+  
+
+
 </head>
+
 <body>
 
-    <header>
-        <nav>
-            <a href="vreserva.php"  class="btn btn-info">Mis reservas</a>
-        </nav>
-    </header>
-    <br>
-  <?php if(isset($_SESSION['mensaje'])){?>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-    <?php echo $_SESSION['mensaje'] ?>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <?php session_unset();}?>
-
-  <form class="form-reserva" action="crud/guardar.php" method="POST">
-    <h4>Hacer Reserva</h4>
-    <select class="controls" name="espacio">
-                        <option disabled selected="">Seleccione un espacio común</option>
-                        <option value="11">Piscina</option>
-                        <option value="12">Quincho</option>
-                        <option value="13">Gimnasio</option>
-                        <option value="14">Sala de juegos</option>
-    </select>                   
-    <p> Ingrese fecha y hora de inicio de la reserva:</p>               
-    <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_inicio" >
-    <p> Ingrese fecha y hora de termino de la reserva:</p> 
-    <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_Termino">
-
-    <input  type="submit" class="boton" name="save" value="Enviar">
-
-</form>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
 </body>
+
+
+
+<div class="container">
+  <h1></h1>
+  
+  <form action="iniciarsesion.php" class="was-validated" method="POST">
+    <div class="container-fluid"> 
+    
+           <div  class="col-sm-12 my-auto" style="width: 40%; margin:0 auto; padding-top: 100px;" > 
+                    <div class="card"> 
+                        <div class="card-header text-center" style="background: #2C3E50; color: #fff">
+                          
+
+                        </div>
+                    <fieldset>
+                        <div class="card-body" style="background: #1f0a76; color: #fff;">
+
+
+
+  <div class="container" style="background: #1f0a76; color: #fff;">
+  <h3>Iniciar sesión </h3>
+  <form action="  ">
+    <div class="form-group">
+      <label for="email">Usuario:</label>
+      <input type="text" class="form-control" id="usuario" pattern="[A-Za-z0-9_-]{1,15}" required placeholder="Ingresar usuario" name="usuario" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Contraseña:</label>
+      <input type="password" class="form-control" id="pwd" pattern="[A-Za-z0-9_-]{1,15}" required placeholder="Ingresar contraseña" name="pswd" required>
+    </div>
+    
+    <button type="submit" style="margin-left: 38%" class="btn btn-success">Ingresar</button>
+   
+  </form>
+  </div>
+        <?php
+             if(!empty($_GET['error1'])){
+                 if($_GET['error1']=='pass'){
+        ?>
+            <div style="padding: 10px; margin-top: 17px; margin-left: 15px; margin-right: 15px;" class="alert alert-danger" role="alert">
+                 Usuario o contraseña incorrectos
+            </div>
+        <?php
+                }
+            }
+         ?>
 </html>
+
+
+
+
+
+
+
+
+
+
+

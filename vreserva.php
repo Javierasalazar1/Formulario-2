@@ -1,10 +1,13 @@
 <?php 
-    include("conex.php");
+    include("conexion.php");
 
-  
-    $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC";
+    if(isset($_GET['rut'])){ 
+        $rut_u=$_GET['rut'];
+        
+    $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC INNER JOIN usuarios t ON r.rut_usuario=t.rut_usuario AND r.rut_usuario=$rut_u";
+
     $resultado = mysqli_query($con,$consul);
-
+    }
 
   
     
@@ -23,7 +26,7 @@
 <body>
 <header>
         <nav>
-                <a href="index.php"  class="btn btn-info">Hacer formulario</a>
+            <a href="homepagereservas.php?rut=<?php echo  $rut_u?>" class="btn btn-info">Hacer formulario</a>
            
         </nav>
     </header>
@@ -64,15 +67,14 @@
 			<td><?php echo $row['Nom_espacioC'] ?></td>
 			<td><?php echo $fechainif ?></td>
 			<td><?php echo $fechafinf ?></td>
-            <td><a href="crud/edit.php?id=<?php echo $row['id'] ?>" class="btn btn-info"><i class="fas fa-marker"></i></a></td>
-            <td><a href="crud/eliminar.php?id=<?php echo $row['id'] ?>" onclick="alerta()" class="btn btn-danger"><i class="far fa-trash-alt"></i></a></td>
+            <td><a href="crud/edit.php?id=<?php echo $row['Id'] ?>" ><i class="fas fa-marker"></i></a></td>
+            <td><a href="crud/eliminar.php?id=<?php echo $row['Id'] ?>" ><i class="far fa-trash-alt"></i></a></td>
 
 		</tr>
 	<?php 
 	}
 	 ?>
-    <script> function alerta(){ alert("Se ha eliminado con éxito")}
-    </script>
+
     </table>
 </body>
 </html>
