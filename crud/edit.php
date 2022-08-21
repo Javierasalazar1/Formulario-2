@@ -3,10 +3,12 @@
     date_default_timezone_set("America/Santiago");
     $date=date("Y-m-d H:i");  
 
-    if(isset($_GET['id'])){
+    if(isset($_GET['id'])&& isset($_GET['rut'])){
         $id=$_GET['id'];
+        
+        $rut_g=$_GET['rut'];
 
-        $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC AND Id=$id";
+        $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC INNER JOIN usuarios t ON r.rut_usuario=t.rut_usuario AND '$rut_g'=r.rut_usuario AND r.Id='$id'";
         $res=mysqli_query($con,$consul);
 
         if(mysqli_num_rows($res)==1){
@@ -18,11 +20,17 @@
             
         }
     }
+
+
+
     if(isset($_POST['Actualizar'])){
+
         $id= $_GET['id'];
+        $rut_g=$_GET['rut'];
         $espac = $_POST['espacio'];
         $fechaini = $_POST['Fecha_inicio'];
         $fechater = $_POST['Fecha_Termino'];
+
 
          /* separar fecha*/    
          $f=explode('T',$fechaini);
@@ -59,10 +67,10 @@
             }}
         
 
-        $update=mysqli_query($con,"UPDATE reserva set cod_espacioC='$espac', Fecha_inicio='$fechaini', Fecha_fin='$fechater'WHERE id=$id");
+        $update=mysqli_query($con,"UPDATE reserva set cod_espacioC='$espac', Fecha_inicio='$fechaini', Fecha_fin='$fechater' WHERE Id='$id'");
 
         if($update==1){
-	        header('location:../vreserva.php');
+	        header("location:../vreserva.php?rut=$rut_g");
         }
 
     }
@@ -84,13 +92,13 @@
 
     <header>
         <nav>
-            <a href="../vreserva.php" class="btn btn-info" hred="#">Volver a mis reservas</a>
+            <a href="../vreserva.php?rut=<?php echo $rut_g?>" class="btn btn-info" hred="#">Volver a mis reservas</a>
            
         </nav>
     </header>
 
 
-  <form class="form-reserva" action="edit.php?id=<?php echo $_GET['id'] ?>" method="POST">
+  <form class="form-reserva" action="edit.php?id=<?php echo $_GET['id'] ?>&rut=<?php echo $_GET['rut'] ?>" method="POST">
     <h4>Editar Reserva</h4>
     <select class="controls" name="espacio">
                         <option value="<?php echo $espacio?>" ><?php echo $nombre?></option>

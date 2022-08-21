@@ -1,8 +1,8 @@
 <?php 
     include("conexion.php");
 
-    $rut_u=$_GET['rut'];
-    $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e, usuarios t ON r.cod_espacioC=e.cod_espacioC AND r.rut_usuario=t.rut_usuario";
+
+    $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC INNER JOIN usuarios t ON r.rut_usuario=t.rut_usuario";
     $resultado = mysqli_query($con,$consul);
 
 
@@ -23,7 +23,7 @@
 <body>
 <header>
         <nav>
-            <a href="homepagereservas.php" class="btn btn-info">Hacer formulario</a>
+            <a href="homepageadmin.php" class="btn btn-info">Volver Home</a>
            
         </nav>
     </header>
@@ -38,7 +38,6 @@
             <td>Espacio común</td>
             <td>Fecha de inicio</td>
             <td>Fecha de Termino</td>
-            <td>Editar</td>
             <td>Eliminar</td>
         </tr>
         </thead>
@@ -68,8 +67,7 @@
 			<td><?php echo $row['Nom_espacioC']?></td>
 			<td><?php echo $fechainif?></td>
 			<td><?php echo $fechafinf?></td>
-            <td><a href="crud/edit.php?id=<?php echo $row['Id'] ?>" ><i class="fas fa-marker"></i></a></td>
-            <td><a href="crud/eliminar.php?id=<?php echo $row['Id'] ?>" ><i class="far fa-trash-alt"></i></a></td>
+            <td><a href="crud/eliminaradmin.php?id=<?php echo $row['Id'] ?>" ><i class="far fa-trash-alt"></i></a></td>
 
 		</tr>
 	<?php 

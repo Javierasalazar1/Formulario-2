@@ -23,7 +23,7 @@
 
     <header>
         <nav>
-            <a href="homepage.php.php"  class="btn btn-info">Inicio</a>
+            <a href="homepage.php"  class="btn btn-info">Inicio</a>
             <a href="vreserva.php?rut=<?php echo  $rut_u?>"  class="btn btn-info">Mis reservas</a>
             
         </nav>

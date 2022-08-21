@@ -3,14 +3,13 @@
 
     if(isset($_GET['rut'])){ 
         $rut_u=$_GET['rut'];
-        
-    $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC INNER JOIN usuarios t ON r.rut_usuario=t.rut_usuario AND r.rut_usuario=$rut_u";
+    }  
+    $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC INNER JOIN usuarios t ON r.rut_usuario=t.rut_usuario AND '$rut_u'=r.rut_usuario";
+    $resultado= mysqli_query($con,$consul);
 
-    $resultado = mysqli_query($con,$consul);
-    }
 
-  
-    
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,7 +25,7 @@
 <body>
 <header>
         <nav>
-            <a href="homepagereservas.php?rut=<?php echo  $rut_u?>" class="btn btn-info">Hacer formulario</a>
+            <a href="homepagereservas.php?rut=<?php echo  $rut_u?>" class="btn btn-info">Volver al formulario</a>
            
         </nav>
     </header>
@@ -47,7 +46,7 @@
         while($row=mysqli_fetch_array($resultado)){
             if(mysqli_num_rows($resultado)!=0){
                 $fechai=$row['Fecha_inicio'];
-                $fechaf=$row['Fecha_fin']; 
+                $fechaf=$row['Fecha_fin'];
                 /* cambiar vista de fecha*/ 
                 $f=explode('T',$fechai);
                 $fechainicial=$f[0]."-".$f[1];
@@ -67,8 +66,10 @@
 			<td><?php echo $row['Nom_espacioC'] ?></td>
 			<td><?php echo $fechainif ?></td>
 			<td><?php echo $fechafinf ?></td>
-            <td><a href="crud/edit.php?id=<?php echo $row['Id'] ?>" ><i class="fas fa-marker"></i></a></td>
-            <td><a href="crud/eliminar.php?id=<?php echo $row['Id'] ?>" ><i class="far fa-trash-alt"></i></a></td>
+            
+            <td><a href="crud/edit.php?id=<?php echo $row['Id'] ?>&rut=<?php echo $rut_u ?>" ><i class="fas fa-marker"></i></a></td>
+            <td><a href="crud/eliminar.php?id=<?php echo $row['Id'] ?>&rut=<?php echo $rut_u ?>" ><i class="far fa-trash-alt"></i></a></td>
+            
 
 		</tr>
 	<?php 
