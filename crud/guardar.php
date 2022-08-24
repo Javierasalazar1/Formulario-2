@@ -44,7 +44,45 @@
                    }
             }
         }}
+
+          
+        $rest=mysqli_query($con, "SELECT * FROM reserva  WHERE '$espac'=cod_espacioC");
+
+        while($row=mysqli_fetch_array($rest)){
+            if(mysqli_num_rows($rest)!=0){
+                $fechai=$row['Fecha_inicio'];
+                $fechaf=$row['Fecha_fin'];
+                $fecha_inici = strtotime($fechai);
+                $fecha_fi = strtotime($fechaf);
+
+                $fechaA = strtotime($fechaini);
+                $fechaB = strtotime($fechater);
     
+                if($fecha_inici<=$fechaA && $fechaA<=$fecha_fi){
+                    if($fecha_inici<=$fechaB && $fechaB<=$fecha_fi){
+                        die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRO.');
+                    }else{
+                    if($fechaB>$fecha_fi){
+                        die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRA FECHA DE INICIO.');
+                    }}
+                    }else{ 
+                            if($fecha_inici<=$fechaB && $fechaB<=$fecha_fi){
+                                if($fecha_inici<=$fechaA && $fechaA<=$fecha_fi){
+                                     die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRO.');
+                                }else{
+                                        if($fechaA<$fecha_inici){
+                                            die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRA FECHA DE INICIO.');
+                                        }}
+                                }else{   if($fecha_inici>$fechaA && $fechaB>$fecha_fi){
+                                    die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRO.');
+                               }
+        
+                    }  
+    
+                }
+            
+            }}
+        
         
     
     
@@ -58,13 +96,16 @@
     
     
         if (mysqli_query($con,$insertar)) {
+                
+            echo "<script type="text/javascript"> alert("Reserva hecha con exito.");</script>";
 
                 header("Location:../homepagereservas.php?rut=$rut_u");
             } else {
-              echo "Error: " . $insertar . "<br>" . mysqli_error($con);
+              echo '<script type="text/javascript"> alert("Error, no se pudo hacer reserva.");</script>';
           }
     
           mysqli_close($con); 
     
-    
+          
 ?>
+<script src="https://kit.fontawesome.com/b36d8c9019.js" crossorigin="anonymous"></script>
