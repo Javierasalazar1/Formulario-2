@@ -1,8 +1,8 @@
 <?php 
     include("conexion.php");
 
-    if(isset($_GET['rut'])){ 
-        $rut_u=$_GET['rut'];
+    if(isset($_REQUEST['rut'])){ 
+        $rut_u=$_REQUEST['rut'];
     }  
     $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC INNER JOIN usuarios t ON r.rut_usuario=t.rut_usuario AND '$rut_u'=r.rut_usuario";
     $resultado= mysqli_query($con,$consul);

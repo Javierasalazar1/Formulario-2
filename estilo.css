@@ -19,7 +19,7 @@ nav{
 
 }
 nav > a{
-    color: aliceblue;
+    color: rgb(0, 0, 0);
     font-weight: 300;
     text-decoration: none;
     margin-right: 10px;
@@ -29,17 +29,26 @@ nav > a:hover{
     text-decoration: underline;
 } 
 
+#title{
+    color: #9c27b0;
+    font-weight: 800;
+    border-bottom: 3px solid coral;
+    background: #ccc;
+    padding: 8px 30px;
+  }
+
 
 .form-reserva {
     width: 400px;
-    background: rgba(138, 5, 226, 0.774);
+    background: linear-gradient(120deg, rgba(248,246,251,1) 0%, rgb(131, 133, 138) 100%);
     padding: 30px;
     margin: auto;
     margin-top: 50px;
     border-radius: 4px;
     font-family: "calibri";
-    color: #fff;
-    box-shadow: 0 0 10px #333;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 0 15px rgb(22, 21, 21);
+    
 }
 
 .form-reserva h4{
@@ -65,7 +74,8 @@ nav > a:hover{
 
 .form-reserva .boton{
     width: 100%;
-    background: #1f53c5;
+    background: rgb(2,0,36);
+    background: linear-gradient(170deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 32%, rgba(0,212,255,1) 100%);
     border: none;
     padding: 12px;
     color: white;
