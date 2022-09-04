@@ -25,6 +25,7 @@
 <body>
 <header>
         <nav>
+            <a style="float: left;" class="btn btn-light" href="homepage.php">Inicio</a>
             <a href="homepagereservas.php?rut=<?php echo  $rut_u?>" class="btn btn-light">Volver al formulario</a>
            
         </nav>

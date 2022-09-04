@@ -1,7 +1,9 @@
 <?php 
     include("conexion.php");
     date_default_timezone_set("America/Santiago");
-    $date=date("Y-m-d H:i");
+    $date=date("Y-m-d H:00");
+    $feden=date("Y-m-d H:00",strtotime($date."+ 1 days"));
+    
     if(isset($_GET['rut'])){ 
     $rut_u=$_GET['rut'];
     }
@@ -31,6 +33,18 @@
   <script src="https://kit.fontawesome.com/b36d8c9019.js" crossorigin="anonymous"></script>
 </head>
 
+<script type= "text/javascript">
+    function confirmRev()
+    {
+        var respuesta = confirm("¿Está seguro que desea hacer reserva?");
+        if(respuesta==true)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    </script>
 
 
 
@@ -38,7 +52,7 @@
 
     <header>
         <nav>
-            <a class="btn btn-light" href="homepage.php">Inicio</a>
+            <a style="float: left;" class="btn btn-light" href="homepage.php">Inicio</a>
             <a class="btn btn-light"  href="vreserva.php?rut=<?php echo  $rut_u?>">Mis reservas</a>
             
         </nav>
@@ -50,7 +64,7 @@
 
         <form class="form-reserva" action="crud/guardar.php?rut=<?php echo  $rut_u?>" method="POST">
             <h4>Hacer Reserva</h4>
-                <select class="controls" name="espacio">
+                <select class="controls" name="espacio" required>
                         <option disabled selected="">Seleccione un espacio común</option>
                         <option value="11">Piscina</option>
                         <option value="12">Quincho</option>
@@ -59,11 +73,11 @@
 
                 </select>
                     <p> Ingrese fecha y hora de inicio de la reserva:</p>
-                <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_inicio" >
+                <input class="controls" type="datetime-local" min="<?php echo $feden?>" step="3600" name="Fecha_inicio" required pattern="\d{4}-\d{2}-\d{2}T\d{2}:00">
                     <p> Ingrese fecha y hora de termino de la reserva:</p> 
-                <input class="controls" type="datetime-local" min="<?php echo $date?>" name="Fecha_Termino">
+                <input class="controls" type="datetime-local" min="<?php echo $feden?>" name="Fecha_Termino" step="3600" required pattern="\d{4}-\d{2}-\d{2}T\d{2}:00">
 
-                <input  type="submit" class="boton" name="save" value="Enviar">
+                <input  type="submit" class="boton" name="save" value="Enviar" onclick="return confirmRev()">
 
         </form>
     </div>
