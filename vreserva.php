@@ -25,7 +25,7 @@
 <body>
 <header>
         <nav>
-            <a href="homepagereservas.php?rut=<?php echo  $rut_u?>" class="btn btn-info">Volver al formulario</a>
+            <a href="homepagereservas.php?rut=<?php echo  $rut_u?>" class="btn btn-light">Volver al formulario</a>
            
         </nav>
     </header>

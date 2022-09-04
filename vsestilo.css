@@ -14,22 +14,17 @@ body{
 
 nav{
     text-align: right;
-    padding: 30px 50px 0 0;
-
+    padding: 0.5%;
+    background: rgb(0, 0, 0);   
 }
 nav > a{
-    color: aliceblue;
-    font-weight: 300;
-    text-decoration: none;
-    margin-right: 10px;
-
+    border-radius: 0%;  
 }
-nav > a:hover{
-    text-decoration: underline;
-} 
 
 .table{
     margin-top: 50px;
+    width: 50%;
+	height: 300px;
 }
 
 tr td{

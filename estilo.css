@@ -15,35 +15,56 @@ body{
 
 nav{
     text-align: right;
-    padding: 30px 50px 0 0;
+    padding: 0.5%;
+    background: rgb(0, 0, 0);
+    
 
 }
 nav > a{
-    color: rgb(0, 0, 0);
-    font-weight: 300;
-    text-decoration: none;
-    margin-right: 10px;
-
+    border-radius: 0%;   
 }
-nav > a:hover{
-    text-decoration: underline;
-} 
 
 #title{
-    color: #9c27b0;
+    margin-top: 1%;
+    color: #000000;
     font-weight: 800;
-    border-bottom: 3px solid coral;
-    background: #ccc;
-    padding: 8px 30px;
+    padding: 2%;
   }
 
+  .row{
+    height: max-content;
+    padding: 0%;
+
+  }
+  .fc fc-unthemed fc-ltr{
+   position: absolute;
+   padding: 0%;
+
+}
+
+
+  #calendar {
+    margin: 10%;
+    align-content: center;
+    background-color: aliceblue;
+    padding: 5%;
+    height: 10%;
+    border-radius: 5%; 
+    box-shadow: 0 0 15px rgb(22, 21, 21);
+
+  }
+
+  .fc-view-container{
+    height: 100%;
+    width: 100%;
+  }
 
 .form-reserva {
     width: 400px;
     background: linear-gradient(120deg, rgba(248,246,251,1) 0%, rgb(131, 133, 138) 100%);
-    padding: 30px;
-    margin: auto;
-    margin-top: 50px;
+    padding: 5%;
+    align-content: center;
+    margin-top: 20%;
     border-radius: 4px;
     font-family: "calibri";
     color: rgb(0, 0, 0);
