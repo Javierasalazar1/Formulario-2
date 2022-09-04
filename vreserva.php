@@ -30,6 +30,33 @@
         </nav>
     </header>
 
+    <script type= "text/javascript">
+    function confirmDelete()
+    {
+        var respuesta = confirm("¿Está seguro que desea eliminar esta reserva?");
+        if(respuesta==true)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    </script>
+    <script type= "text/javascript">
+    function confirmEdit()
+    {
+        var respuesta = confirm("¿Está seguro que desea editar esta reserva?");
+        if(respuesta==true)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    </script>
+
+
+
     <br>
 
     <table class= "table table-dark table-striped" >
@@ -67,8 +94,8 @@
 			<td><?php echo $fechainif ?></td>
 			<td><?php echo $fechafinf ?></td>
             
-            <td><a href="crud/edit.php?id=<?php echo $row['Id'] ?>&rut=<?php echo $rut_u ?>" ><i class="fas fa-marker"></i></a></td>
-            <td><a href="crud/eliminar.php?id=<?php echo $row['Id'] ?>&rut=<?php echo $rut_u ?>" ><i class="far fa-trash-alt"></i></a></td>
+            <td><a href="crud/edit.php?id=<?php echo $row['Id'] ?>&rut=<?php echo $rut_u ?>" onclick="return confirmEdit()"><i class="fas fa-marker"></i></a></td>
+            <td><a href="crud/eliminar.php?id=<?php echo $row['Id'] ?>&rut=<?php echo $rut_u ?>" onclick="return confirmDelete()" ><i class="far fa-trash-alt"></i></a></td>
             
 
 		</tr>

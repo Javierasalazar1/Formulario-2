@@ -20,6 +20,20 @@
   <script src="https://kit.fontawesome.com/b36d8c9019.js" crossorigin="anonymous"></script>
   <title>Mis reservas</title>
 </head>
+
+<script type= "text/javascript">
+    function confirmDelete()
+    {
+        var respuesta = confirm("¿Está seguro que desea eliminar esta reserva?");
+        if(respuesta==true)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    </script>
+
 <body>
 <header>
         <nav>
@@ -27,6 +41,7 @@
            
         </nav>
     </header>
+
 
     <br>
 
@@ -67,7 +82,7 @@
 			<td><?php echo $row['Nom_espacioC']?></td>
 			<td><?php echo $fechainif?></td>
 			<td><?php echo $fechafinf?></td>
-            <td><a href="crud/eliminaradmin.php?id=<?php echo $row['Id'] ?>" ><i class="far fa-trash-alt"></i></a></td>
+            <td><a href="crud/eliminaradmin.php?id=<?php echo $row['Id'] ?>" onclick="return confirmDelete()"><i class="far fa-trash-alt"></i></a></td>
 
 		</tr>
 	<?php 
