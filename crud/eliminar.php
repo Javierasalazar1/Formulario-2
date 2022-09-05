@@ -1,15 +1,45 @@
 
 <?php
 include("../conexion.php");
+session_start();
+$rut_g=$_SESSION['rut_usuario'];
 
-$id_r=$_GET['id'];
+if(isset($_GET['id'])){
 
-$rut_g=$_GET['rut'];
+$valor_ecriptado = $_GET['id'];
+
+$consulta2 = mysqli_query( $con,"SELECT Id from reserva where rut_usuario='$rut_g'");
+
+while($campo =mysqli_fetch_array($consulta2))
+    {
+        $id_original = $campo['Id'];
+
+        if($valor_ecriptado == md5(md5($id_original)))
+            {
+                $id_r = $campo['Id'];
+            }
+       
+    }
+}
 
 $consulta = mysqli_query ($con, "DELETE FROM reserva where Id='$id_r'");
 
-if($consulta==1){
-	header("location:../vreserva.php?rut=$rut_g");
+if($consulta==1){ ?>
+
+<script type="text/javascript">
+	alert("¡Reserva eliminada con éxito!");
+	window.location.href="../vreserva.php"; 
+</script>'; <?php
+
+}else{
+	?>
+
+<script type="text/javascript">
+	alert("¡Reserva no se pudo eliminar!");
+	window.location.href="../vreserva.php"; 
+</script>'; <?php
 }
 ?>
+
+
 

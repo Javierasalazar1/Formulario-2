@@ -1,14 +1,21 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <?php 
     include("../conexion.php");
+   
 
 
-    $rut_u=$_GET['rut'];
+    $rut_u=$_POST['rut'];
     $espac = $_POST['espacio'];
     $fechaini = $_POST['Fecha_inicio'];
     $fechater = $_POST['Fecha_Termino'];
 
         if($espac==0 || !$fechaini || !$fechater){
-            die("debe llenar los campos");
+            ?>
+            <script type="text/javascript">
+            alert("Debe llenar todos los campos");
+            window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+            </script>'; <?php
+                exit(); 
 
         }
         /* separar fecha*/    
@@ -28,19 +35,46 @@
         $fffff=$ffff[0]."-".$ffff[1];
         $fb=explode('-',$fffff);
 
+        $v=6;
+
 
     if($fa[0]>$fb[0]){
         if($fa[1]==$fb[1]){
-            die("el dia de inicio debe ser menor o igual a el dia de termino");
+
+        
+            ?>
+            <script type="text/javascript">
+                alert("El día de inicio debe ser menor o igual al día de término");
+                window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>";  
+            </script>'; <?php
+            
+            
+            exit();
             }
         }else{
               if($fa[1]>$fb[1]){
-                    die("el mes de inicio debe ser menor o igual a el dia de termino");
+
+                ?>
+            <script type="text/javascript">
+            alert("el mes de inicio debe ser menor o igual a el mes de término");
+            window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>";
+            
+            </script>'; <?php
+                exit(); 
+                
                     }
             else{
                     if($fa[0]==$fb[0]){
-                     if($fa[3]>$fb[3]){
-                     die("la hora de inicio debe ser menor a la hora de termino");
+                     if($fa[3]>$fb[3] || $fa[3]+6>$fb[3]){
+                        
+                        ?>
+                        <script type="text/javascript">
+                        alert("la hora de inicio debe ser menor a la hora de término y con al menos 6 horas de diferencia.");
+                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                        exit();
+                        </script>'; <?php
+                        exit(); 
+
                    }
             }
         }}
@@ -60,52 +94,103 @@
     
                 if($fecha_inici<=$fechaA && $fechaA<=$fecha_fi){
                     if($fecha_inici<=$fechaB && $fechaB<=$fecha_fi){
-                        die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRO.');
+   
+                        ?>
+                        <script type="text/javascript">
+                        alert("No puede tomar este horario, seleccione otra fecha.");
+                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                        </script>'; <?php
+                        exit(); 
+
                     }else{
                     if($fechaB>$fecha_fi){
-                        die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRA FECHA DE INICIO.');
+
+                        ?>
+                        <script type="text/javascript">
+                        alert("No puede tomar este horario, seleccione otra fecha de inicio de su reserva.");
+                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                     
+                        </script>'; <?php
+                        exit(); 
+                        
                     }}
                     }else{ 
                             if($fecha_inici<=$fechaB && $fechaB<=$fecha_fi){
                                 if($fecha_inici<=$fechaA && $fechaA<=$fecha_fi){
-                                     die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRO.');
+                                    ?>
+                                <script type="text/javascript">
+                                alert("No puede tomar este horario, seleccione otro horario.");
+                                window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                          
+                                </script>'; <?php
+                                exit(); 
+                             
                                 }else{
                                         if($fechaA<$fecha_inici){
-                                            die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRA FECHA DE INICIO.');
+
+                                            ?>
+                                        <script type="text/javascript">
+                                        alert("No puede tomar este horario, seleccione otra fecha de inicio de su reserva.");
+                                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                                    
+                                        </script>'; <?php
+                                        exit(); 
+                                  
                                         }}
                                 }else{   if($fecha_inici>$fechaA && $fechaB>$fecha_fi){
-                                    die('NO PUEDE TOMAR ESTE HORARIO. SELECCIONE OTRO.');
+
+                                    ?>
+                                        <script type="text/javascript">
+                                        alert("No puede tomar este horario, seleccione otro.");
+                                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                                      
+                                        </script>'; <?php
+                                        exit(); 
+                                  
                                }
         
                     }  
     
                 }
+                
             
             }}
+
+            $femax=strtotime($fechaini."+ 2 day");
+            $fetermax = strtotime($fechater);
+
+                if($fetermax>$femax){
+                    ?>
+                                        <script type="text/javascript">
+                                        alert("No puedes hacer una reserva de más de 2 días.");
+                                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                                        </script>'; <?php
+                                        exit(); 
+
+                }
         
         
     
     
  
-    $insertar="INSERT INTO reserva(rut_usuario,cod_espacioC,Fecha_inicio,Fecha_fin)VALUES('$rut_u','$espac','$fechaini','$fechater')";
+    $insertar=mysqli_query ($con,"INSERT INTO reserva(rut_usuario,cod_espacioC,Fecha_inicio,Fecha_fin)VALUES('$rut_u','$espac','$fechaini','$fechater')");
 
     
 
+    if($insertar==1){ ?>
 
+        <script type="text/javascript">
+            alert("¡Reserva guardada con éxito!");
+            window.location.href="../vreserva.php?rut=<?php echo  $rut_u ?>"; 
+            
+        </script>'; <?php
+        
+        }
+        ?>
     
-    
-    
-        if (mysqli_query($con,$insertar)) {
-                
-            echo "<script type="text/javascript"> alert("Reserva hecha con exito.");</script>";
-
-                header("Location:../homepagereservas.php?rut=$rut_u");
-            } else {
-              echo '<script type="text/javascript"> alert("Error, no se pudo hacer reserva.");</script>';
-          }
-    
-          mysqli_close($con); 
     
           
 ?>
-<script src="https://kit.fontawesome.com/b36d8c9019.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
