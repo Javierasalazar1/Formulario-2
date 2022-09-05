@@ -37,7 +37,7 @@
 <body>
 <header>
         <nav>
-            <a href="homepageadmin.php" class="btn btn-info">Volver Home</a>
+            <a href="homepageadmin.php" class="btn btn-light">Volver Home</a>
            
         </nav>
     </header>

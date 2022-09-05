@@ -1,13 +1,12 @@
 <?php 
     include("conexion.php");
+    session_start();
+    $rut_u=$_SESSION['rut_usuario'];
 
     date_default_timezone_set("America/Santiago");
     $date=date("Y-m-d H:00");
     $feden=date("Y-m-d H:00",strtotime($date."+ 1 days"));
-    
-    if(isset($_GET['rut'])){ 
-    $rut_u=$_GET['rut'];
-    } 
+  
     $Consul= ("SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC");
         $resulEventos = mysqli_query($con, $Consul);
 
@@ -54,7 +53,7 @@
     <header>
         <nav>
             <a style="float: left;" class="btn btn-light" href="homepage.php">Inicio</a>
-            <a class="btn btn-light"  href="vreserva.php?rut=<?php echo  $rut_u?>">Mis reservas</a>
+            <a class="btn btn-light"  href="vreserva.php">Mis reservas</a>
             
         </nav>
     </header>
@@ -63,7 +62,7 @@
   <div class="row">
     <div class="col-6 col-md-4">
 
-        <form class="form-reserva" action="crud/guardar.php?" method="POST">
+        <form class="form-reserva" action="crud/guardar.php" method="POST">
             <h4>Hacer Reserva</h4>
                 <input id="prut" name="rut" type="hidden" value="<?php echo  $rut_u?>">
                 <select class="controls" name="espacio" required>

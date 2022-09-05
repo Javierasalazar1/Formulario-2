@@ -57,7 +57,7 @@
 <div class="topnav">
   
   <a class="active" href="#home">Inicio</a>
-  <a href="homepagereservas.php?rut=<?php echo  $rut_p?>">Reservas</a>
+  <a href="homepagereservas.php" method="POST" value="<?php echo  $rut_p?>" name="rut">Reservas</a> 
   <a href="perfilusuariopage.php">Perfil</a>
   <a href="logout.php" class="split">Cerrar Sesion</a>
   <h1 style="color:#ffffff; font-size: 1.7rem ;background-color:#110a2f" align="center">Bienvenid@ <?php echo $nombrecomp?></h1>

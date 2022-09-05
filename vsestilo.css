@@ -13,9 +13,11 @@ body{
 }
 
 nav{
+    
+    overflow: hidden;
+    background-color: #333;
     text-align: right;
-    padding: 0.5%;
-    background: rgb(0, 0, 0);   
+    padding: 0.5%; 
 }
 nav > a{
     border-radius: 0%;  

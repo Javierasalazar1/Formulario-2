@@ -1,8 +1,10 @@
 <?php 
     include("conexion.php");
+    session_start();
+    $rut_u=$_SESSION['rut_usuario'];
 
-    if(isset($_REQUEST['rut'])){ 
-        $rut_u=$_REQUEST['rut'];
+    if(isset($_SESSION['rut'])){ 
+        $rut_u=$_SESSION['rut_usuario'];
     }  
     $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC INNER JOIN usuarios t ON r.rut_usuario=t.rut_usuario AND '$rut_u'=r.rut_usuario";
     $resultado= mysqli_query($con,$consul);
@@ -26,7 +28,7 @@
 <header>
         <nav>
             <a style="float: left;" class="btn btn-light" href="homepage.php">Inicio</a>
-            <a href="homepagereservas.php?rut=<?php echo  $rut_u?>" class="btn btn-light">Volver al formulario</a>
+            <a href="homepagereservas.php" class="btn btn-light">Volver al formulario</a>
            
         </nav>
     </header>
@@ -97,8 +99,8 @@
 			<td><?php echo $fechainif ?></td>
 			<td><?php echo $fechafinf ?></td>
             
-            <td><a href="crud/edit.php?id=<?php echo $row['Id'] ?>&rut=<?php echo $rut_u ?>" onclick="return confirmEdit()"><i class="fas fa-marker"></i></a></td>
-            <td><a href="crud/eliminar.php?id=<?php echo $row['Id'] ?>&rut=<?php echo $rut_u ?>" onclick="return confirmDelete()" ><i class="far fa-trash-alt"></i></a></td>
+            <td><a href="crud/edit.php?id=<?php echo md5(md5($row['Id'])) ?>" onclick="return confirmEdit()"><i class="fas fa-marker"></i></a></td>
+            <td><a href="crud/eliminar.php?id=<?php echo md5(md5($row['Id'])) ?>" onclick="return confirmDelete()" ><i class="far fa-trash-alt"></i></a></td>
             
 
 		</tr>
