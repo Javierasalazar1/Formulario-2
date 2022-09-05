@@ -60,12 +60,14 @@
 
     <br>
 
+    
+  
     <table class= "table table-dark table-striped" >
         <thead class="table-dark">
         <tr>
-            <td>Espacio común</td>
-            <td>Fecha de inicio</td>
-            <td>Fecha de Termino</td>
+            <td>Espacio Común</td>
+            <td>Fecha de Inicio</td>
+            <td>Fecha de Término</td>
             <td>Editar</td>
             <td>Eliminar</td>
         </tr>
@@ -105,5 +107,6 @@
 	 ?>
 
     </table>
+    
 </body>
 </html>

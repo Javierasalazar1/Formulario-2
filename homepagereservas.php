@@ -1,12 +1,13 @@
 <?php 
     include("conexion.php");
+
     date_default_timezone_set("America/Santiago");
     $date=date("Y-m-d H:00");
     $feden=date("Y-m-d H:00",strtotime($date."+ 1 days"));
     
     if(isset($_GET['rut'])){ 
     $rut_u=$_GET['rut'];
-    }
+    } 
     $Consul= ("SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC");
         $resulEventos = mysqli_query($con, $Consul);
 
@@ -62,8 +63,9 @@
   <div class="row">
     <div class="col-6 col-md-4">
 
-        <form class="form-reserva" action="crud/guardar.php?rut=<?php echo  $rut_u?>" method="POST">
+        <form class="form-reserva" action="crud/guardar.php?" method="POST">
             <h4>Hacer Reserva</h4>
+                <input id="prut" name="rut" type="hidden" value="<?php echo  $rut_u?>">
                 <select class="controls" name="espacio" required>
                         <option disabled selected="">Seleccione un espacio común</option>
                         <option value="11">Piscina</option>
@@ -77,7 +79,7 @@
                     <p> Ingrese fecha y hora de termino de la reserva:</p> 
                 <input class="controls" type="datetime-local" min="<?php echo $feden?>" name="Fecha_Termino" step="3600" required pattern="\d{4}-\d{2}-\d{2}T\d{2}:00">
 
-                <input  type="submit" class="boton" name="save" value="Enviar" onclick="return confirmRev()">
+                <input  type="submit" class="boton" name="save" value="Enviar" " onclick="return confirmRev()">
 
         </form>
     </div>
