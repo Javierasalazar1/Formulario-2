@@ -5,7 +5,8 @@ body {
   
   .topnav {
     overflow: hidden;
-    background-color: #110a2f;
+   
+    background: linear-gradient(120deg, rgba(248,246,251,1) 0%, rgba(177,180,187,1) 100%);
     
   }
   
@@ -32,7 +33,7 @@ body {
   }
 
   body {
-    background-image: url('img/3fondo.jpg');
+    background-image: url('img/fondo3.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;  
     background-size: cover;

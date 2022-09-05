@@ -17,18 +17,6 @@
     $telefonoper= $_SESSION['telefono_per'];
     $domicilioper = $_SESSION['num_domicilio'];
 
-
-
-    $sql2="SELECT * FROM usuarios WHERE apellido_per= '$usuario2' ";   // buscamos los datos , se puede logear tanto con
-    $consulta = mysqli_query ($con, $sql2);                                                         //  rut como con el nombre usuario
-        while ($muestra=mysqli_fetch_array($consulta)) {
-
-            $nombre=$muestra['nombre_per'];
-	
-        }
-    $nombrecomp = $nombre ." ". $usuario2 ;
-
-
 ?>
 
 
@@ -49,22 +37,21 @@
 
 <div class="topnav">
   
-  <a class="active" href="homepage.php">Inicio</a>
-  <a href="#news">Reservas</a>
-  <a href="#contact">Perfil</a>
+  <a class="active" href="homepage.php"style="color:#000000;">Inicio</a>
+  <a href="homepagereservas.php"style="color:#000000;">Reservas</a>
+  <a href="#contact"style="color:#000000;">Perfil</a>
   <a href="logout.php" class="split">Cerrar Sesion</a>
 </div>
 
-<div style="padding-left:16px">
 
-</div>
+
 
 <div class="perfilcontainer"> <ul>
-<li>Nombre: <?php echo $nombreper?></li>
-<li>Apellido: <?php echo $usuario2?></li>
-<li>Rut: <?php echo $rutper?></li>
-<li>Telefono: <?php echo $telefonoper?></li>
-<li>N_Domicilio: <?php echo $domicilioper?></li>
+<li>Nombre:<?php echo $nombreper?></li>
+<li>Apellido:<?php echo $usuario2?></li>
+<li>Rut:<?php echo $rutper?></li>
+<li>Telefono:<?php echo "+56".$telefonoper?></li>
+<li>Domicilio:<?php echo $domicilioper?></li>
 </ul></div>
 
 

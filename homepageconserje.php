@@ -50,11 +50,11 @@
 
 <div class="topnav">
   
-  <a class="active" href="#home">Inicio</a>
-  <a href="vreserva_admin.php">Reservas</a>
-  <a href="#contact">Perfil</a>
+  <a class="active" href="homepage.php"style="color:#000000;" >Inicio</a>
+  <a href="homepagereservas.php"  style="color:#000000;">Reservas</a>
+  <a href="formulariousuario.php" style="color:#000000;">Perfil</a>
   <a href="logout.php" class="split">Cerrar Sesion</a>
-  <h1 style="color:#ffffff; font-size: 1.2rem ;background-color:#110a2f" align="center">Bienvenid@ <?php echo $nombrecomp?></h1>
+  <h1 style="color:#000000; font-size: 1.2rem ;background: linear-gradient(120deg, rgba(248,246,251,1) 0%, rgba(177,180,187,1) 100%);" align="center">Bienvenid@ <?php echo $nombrecomp?></h1>
 </div>
 
 <div style="padding-left:16px">

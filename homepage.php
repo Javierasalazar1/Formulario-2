@@ -25,7 +25,6 @@
         while ($muestra=mysqli_fetch_array($consulta)) {
 
             $nombre=$muestra['nombre_per'];
-            $rut_p=$muestra['rut_usuario'];
 	
         }
     $nombrecomp = $nombre ." ". $usuario2 ;
@@ -43,7 +42,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 <link rel="stylesheet" href="style.css">
 
 
@@ -56,11 +54,11 @@
 
 <div class="topnav">
   
-  <a class="active" href="#home">Inicio</a>
-  <a href="homepagereservas.php" method="POST" value="<?php echo  $rut_p?>" name="rut">Reservas</a> 
-  <a href="perfilusuariopage.php">Perfil</a>
-  <a href="logout.php" class="split">Cerrar Sesion</a>
-  <h1 style="color:#ffffff; font-size: 1.7rem ;background-color:#110a2f" align="center">Bienvenid@ <?php echo $nombrecomp?></h1>
+  <a class="active" href="#home" style="color:#000000;">Inicio</a>
+  <a href="homepagereservas.php" style="color:#000000;">Reservas</a>
+  <a href="perfilusuariopage.php" style="color:#000000;">Perfil</a>
+  <a href="logout.php" class="split">Cerrar Sesión</a>
+  <h1 style="color:#000000; font-size: 1.7rem ;background: linear-gradient(120deg, rgba(248,246,251,1) 0%, rgba(177,180,187,1) 100%);" align="center">Bienvenid@ <?php echo $nombrecomp?></h1>
 </div>
 
 
@@ -71,27 +69,47 @@
 </div>
 <body>
 <div class="container">
-  <b style="color:#cdc6ee; bold=negrita; font-size: 2rem ">Espacios Comunes</b>  
+  <b style="color:#000000; bold=negrita; font-size: 2rem ">Espacios Comunes</b>  
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" align="center">
       <div class="item active"> 
-        <img src="img/g4.jpg" class="img-rounded" alt="Sala" width="4000">
+        <img src="img/g4.jpg" class="img-rounded" alt="Sala" width="3000">
+        <div class="carousel-caption">
+          <h3>Sala de juegos</h3>
+          <p>Sala de juegos ideal para pasar momentos divertidos e inolvidables.</p>
+        </div>
       </div>
 
       <div class="item">
-        <img src="img/g1.jpg"  class="img-rounded" alt="Gym" width="4000">
+        <img src="img/g1.jpg"  class="img-rounded" alt="Gym" width="3000">
+        <div class="carousel-caption">
+          <h3>Gimnasio</h3>
+          <p>Nuestro gimnasio cuenta con un amplio espacio, gran variedad de maquinas y un ambiente muy grato.</p>
+        </div>
       </div>
     
       <div class="item">
-        <img src="img/g3.jpg"  class="img-rounded" alt="Quincho" width="4000">
+        <img src="img/g3.jpg"  class="img-rounded" alt="Quincho" width="3000">
+        <div class="carousel-caption">
+          <h3>Quincho</h3>
+          <p>Remodelado, más amplio y acogedor, ideal para pasar un buen momento con la familia y amigos.</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="img/g2.jpg"  class="img-rounded" alt="Piscina" width="3000">
+        <div class="carousel-caption">
+          <h3>Piscina</h3>
+          <p>Te invitamos a nuestra gran piscina, para disfrutar y olvidarte del estrés</p>
+        </div>
       </div>
     </div>
 

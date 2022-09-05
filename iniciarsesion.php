@@ -13,7 +13,8 @@ while ($muestra=mysqli_fetch_array($consulta)) {
 	$n_u=$muestra['apellido_per'];
     $nombre=$muestra['nombre_per'];
     $codrol=$muestra['cod_rol'];
-
+    $telefono_per=$muestra['telefono_per'];
+    $num_domicilio=$muestra['num_domicilio'];
 	
 }
 
@@ -35,8 +36,8 @@ if(password_verify($password, $clave)){
      $_SESSION['rut_usuario']=$clave;
      $_SESSION['nombre_per']=$nombre;
      $_SESSION['cod_rol']=$codrol;
-     $_SESSION['telefono_per']=$telefonoper;
-     $_SESSION['num_domicilio']=$domicilioper;
+     $_SESSION['telefono_per']=$telefono_per;
+     $_SESSION['num_domicilio']=$num_domicilio;
 
 	  if($codrol == 3)echo '<script>window.location="homepage.php";</script>';
     if($codrol == 2)echo '<script>window.location="homepageconserje.php";</script>';
