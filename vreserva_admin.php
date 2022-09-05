@@ -1,6 +1,9 @@
 <?php 
     include("conexion.php");
 
+    session_start();
+ 
+
 
     $consul= "SELECT * FROM reserva r INNER JOIN espacio_comun e ON r.cod_espacioC=e.cod_espacioC INNER JOIN usuarios t ON r.rut_usuario=t.rut_usuario";
     $resultado = mysqli_query($con,$consul);
@@ -82,7 +85,7 @@
 			<td><?php echo $row['Nom_espacioC']?></td>
 			<td><?php echo $fechainif?></td>
 			<td><?php echo $fechafinf?></td>
-            <td><a href="crud/eliminaradmin.php?id=<?php echo $row['Id'] ?>" onclick="return confirmDelete()"><i class="far fa-trash-alt"></i></a></td>
+            <td><a href="crud/eliminaradmin.php?id=<?php echo md5(md5($row['Id']))?>" onclick="return confirmDelete()"><i class="far fa-trash-alt"></i></a></td>
 
 		</tr>
 	<?php 
