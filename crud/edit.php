@@ -171,7 +171,7 @@
                 </select>
                     <p> Ingrese fecha y hora de inicio de la reserva:</p>
                     <input class="controls" type="datetime-local" min="<?php echo $feden?>" name="Fecha_inicio" id="Fecha_inicio"  value="<?php echo $fechai?>" required pattern="\d{4}-\d{2}-\d{2}T\d{2}:\d{2}" step="1800">
-                    <p> Ingrese fecha y hora de termino de la reserva:</p> 
+                    <p> Ingrese fecha y hora de término de la reserva:</p> 
                     <input class="controls" type="datetime-local" min="<?php echo $feden?>" name="Fecha_Termino" id="Fecha_termino" value="<?php echo $fechaf?>" required pattern="\d{4}-\d{2}-\d{2}T\d{2}:\d{2}" step="1800">
 
                     <input  type="submit" class="boton" name="Actualizar">

@@ -1,6 +1,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 <?php 
     include("../conexion.php");
+    session_start();
    
 
 
@@ -13,7 +14,7 @@
             ?>
             <script type="text/javascript">
             alert("Debe llenar todos los campos");
-            window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+            window.location.href="../homepagereservas.php"; 
             </script>'; <?php
                 exit(); 
 
@@ -45,7 +46,7 @@
             ?>
             <script type="text/javascript">
                 alert("El día de inicio debe ser menor o igual al día de término");
-                window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>";  
+                window.location.href="../homepagereservas.php";  
             </script>'; <?php
             
             
@@ -57,7 +58,7 @@
                 ?>
             <script type="text/javascript">
             alert("el mes de inicio debe ser menor o igual a el mes de término");
-            window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>";
+            window.location.href="../homepagereservas.php";
             
             </script>'; <?php
                 exit(); 
@@ -70,7 +71,7 @@
                         ?>
                         <script type="text/javascript">
                         alert("la hora de inicio debe ser menor a la hora de término y con al menos 6 horas de diferencia.");
-                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                        window.location.href="../homepagereservas.php"; 
                         exit();
                         </script>'; <?php
                         exit(); 
@@ -98,7 +99,7 @@
                         ?>
                         <script type="text/javascript">
                         alert("No puede tomar este horario, seleccione otra fecha.");
-                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                        window.location.href="../homepagereservas.php"; 
                         </script>'; <?php
                         exit(); 
 
@@ -108,7 +109,7 @@
                         ?>
                         <script type="text/javascript">
                         alert("No puede tomar este horario, seleccione otra fecha de inicio de su reserva.");
-                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                        window.location.href="../homepagereservas.php"; 
                      
                         </script>'; <?php
                         exit(); 
@@ -120,7 +121,7 @@
                                     ?>
                                 <script type="text/javascript">
                                 alert("No puede tomar este horario, seleccione otro horario.");
-                                window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                                window.location.href="../homepagereservas.php"; 
                           
                                 </script>'; <?php
                                 exit(); 
@@ -131,7 +132,7 @@
                                             ?>
                                         <script type="text/javascript">
                                         alert("No puede tomar este horario, seleccione otra fecha de inicio de su reserva.");
-                                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                                        window.location.href="../homepagereservas.php"; 
                                     
                                         </script>'; <?php
                                         exit(); 
@@ -142,7 +143,7 @@
                                     ?>
                                         <script type="text/javascript">
                                         alert("No puede tomar este horario, seleccione otro.");
-                                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                                        window.location.href="../homepagereservas.php"; 
                                       
                                         </script>'; <?php
                                         exit(); 
@@ -163,7 +164,7 @@
                     ?>
                                         <script type="text/javascript">
                                         alert("No puedes hacer una reserva de más de 2 días.");
-                                        window.location.href="../homepagereservas.php?rut=<?php echo  $rut_u ?>"; 
+                                        window.location.href="../homepagereservas.php"; 
                                         </script>'; <?php
                                         exit(); 
 
@@ -181,7 +182,7 @@
 
         <script type="text/javascript">
             alert("¡Reserva guardada con éxito!");
-            window.location.href="../vreserva.php?rut=<?php echo  $rut_u ?>"; 
+            window.location.href="../vreserva.php"; 
             
         </script>'; <?php
         
@@ -190,7 +191,7 @@
     
     
           
-?>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
