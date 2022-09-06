@@ -75,7 +75,7 @@
                 </select>
                     <p> Ingrese fecha y hora de inicio de la reserva:</p>
                 <input class="controls" type="datetime-local" min="<?php echo $feden?>" step="1800" name="Fecha_inicio" required pattern="\d{4}-\d{2}-\d{2}T\d{2}:00">
-                    <p> Ingrese fecha y hora de termino de la reserva:</p> 
+                    <p> Ingrese fecha y hora de término de la reserva:</p> 
                 <input class="controls" type="datetime-local" min="<?php echo $feden?>" name="Fecha_Termino" step="1800" required pattern="\d{4}-\d{2}-\d{2}T\d{2}:00">
 
                 <input  type="submit" class="boton" name="save" value="Enviar" " onclick="return confirmRev()">
@@ -86,10 +86,9 @@
 
     <div class="col-md-8">
         
-    <div class="row">        
+    <div class="row">   
 
 <div id="calendar">  
-
 <script src ="js/jquery-3.0.0.min.js"> </script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -97,6 +96,8 @@
 <script type="text/javascript" src="js/moment.min.js"></script>	
 <script type="text/javascript" src="js/fullcalendar.min.js"></script>
 <script src='locales/es.js'></script>
+
+
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -116,8 +117,8 @@ $(document).ready(function() {
     selectable: false,
     selectHelper: false,
 
-
-      
+   
+     
     events: [
       <?php
        while($dataEvento = mysqli_fetch_array($resulEventos)){ 
@@ -125,7 +126,7 @@ $(document).ready(function() {
         ?>
           {
         
-          _id: '<?php echo $dataEvento['Id']; ?>',
+          _id: '<?php echo $dataEvento['Id'];?>',
           title: '<?php echo $dataEvento['Nom_espacioC']; ?>',
           start: '<?php echo $dataEvento['Fecha_inicio']; ?>',
           end:   '<?php echo $dataEvento['Fecha_fin'] ; ?>',

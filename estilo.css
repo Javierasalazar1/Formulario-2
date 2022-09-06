@@ -61,12 +61,14 @@ nav{
   }
 
 .form-reserva {
-    width: 400px;
+    width: 100%;
+    min-width: 100%;
+
     background: linear-gradient(120deg, rgba(248,246,251,1) 0%, rgb(131, 133, 138) 100%);
     padding: 5%;
     align-content: center;
     margin-top: 20%;
-    border-radius: 4px;
+    border-radius: 4%;
     font-family: "calibri";
     color: rgb(0, 0, 0);
     box-shadow: 0 0 15px rgb(22, 21, 21);
